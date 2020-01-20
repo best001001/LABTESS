@@ -67,5 +67,6 @@ function replyMsg($arrayHeader,$arrayPostData){
         $result = curl_exec($ch);
         curl_close ($ch);
     }
+file_put_contents('log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
    exit;
 ?>
