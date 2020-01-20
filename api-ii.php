@@ -21,8 +21,6 @@
 
   if (strpos($_msg, 'H.E.L.E.N') !== false) 
   {
-    if (strpos($_msg, 'H.E.L.E.N') !== false) 
-    {
       $x_tra = str_replace("H.E.L.E.N","", $_msg);
       $pieces = explode("|", $x_tra);
       $_question=str_replace("[","",$pieces[0]);
@@ -47,7 +45,6 @@
       $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
       $arrPostData['messages'][0]['type'] = "text";
       $arrPostData['messages'][0]['text'] = 'Thank you.';
-    }
   }
   else
   {
