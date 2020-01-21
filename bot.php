@@ -3,18 +3,18 @@
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-    
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
+    
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['message']['text'];
+        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
@@ -67,6 +67,5 @@ function replyMsg($arrayHeader,$arrayPostData){
         $result = curl_exec($ch);
         curl_close ($ch);
     }
-file_put_contents('log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
    exit;
 ?>
