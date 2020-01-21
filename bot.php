@@ -3,7 +3,7 @@
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-    
+    $test      = json_encode($arrayJson);
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
@@ -14,7 +14,7 @@
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = print_r($arrayJson);
+        $arrayPostData['messages'][0]['text'] = $test;
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
