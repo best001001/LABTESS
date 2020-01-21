@@ -1,15 +1,15 @@
 <?php
-    $accessToken = "0zv2kguUzxFpHl2hOa4GREeT2dhpx+Cr3yb/oHwA374LsKwDCldj/8DHjllLOlvWT7+m6gp46AyPTrHTLsf/R0khwzaoxqWnapg/5MI8iMxAio9Wefmx8lCEelzbDV2y57rnGdzHd4o6M204/4ioyAdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
+    $accessToken = "";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
+    
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-    
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -26,7 +26,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Image"
-    else if(strpos($message,"รูปน้องแมว")){
+    else if($message == "รูปน้องแมว"){
         $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "image";
