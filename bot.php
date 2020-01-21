@@ -32,7 +32,7 @@
         $arrayPostData['messages'][0]['type'] = "image";
         $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
         $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
-        replyMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader,$arrayJson);
     }
     #ตัวอย่าง Message Type "Location"
     else if($message == "พิกัดสยามพารากอน"){
