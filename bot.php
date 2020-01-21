@@ -60,6 +60,13 @@
         $arrayPostData['messages'][0]['text'] = $content;
         replyMsg($arrayHeader,$arrayPostData);
     }
+    else if($message == "gps"){
+        $gps file_get_contents("https://e86d5718.ngrok.io/line-bot/eiei.php")
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $gps;
+        replyMsg($arrayHeader,$arrayPostData);
+    }
     
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
