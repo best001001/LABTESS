@@ -26,7 +26,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Image"
-    else if(strpos($message,"รูปน้องแมว") || $message == "รูปน้องแมว"){
+    else if(strpos($message,"รูปน้องแมว") !== false){
         $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "image";
@@ -61,7 +61,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else if($message == "gps"){
-        $gps = file_get_contents("https://640ea40e.ngrok.io/line-bot/eiei.php");
+        $gps = file_get_contents("https://e86d5718.ngrok.io/line-bot/eiei.php");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $gps;
