@@ -61,7 +61,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else if(stripos($message, 'gps') !== false ){
-        list($gps,$car_id)=explode(" ",$message);
+        list($gpsz,$car_id)=explode(" ",$message);
         //if( mb_strlen($car_id, 'UTF-8') >= 3 && mb_strlen($car_id, 'UTF-8') <= 10){
           $gps = file_get_contents("https://640ea40e.ngrok.io/line-bot/eiei.php?=".$car_id);
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
