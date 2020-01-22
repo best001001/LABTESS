@@ -60,7 +60,7 @@
         $arrayPostData['messages'][0]['text'] = $content;
         replyMsg($arrayHeader,$arrayPostData);
     }
-    else if(stripos($text, 'gps') !== false ){
+    else if(stripos($message, 'gps') !== false ){
         $gps = file_get_contents("https://640ea40e.ngrok.io/line-bot/eiei.php");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
