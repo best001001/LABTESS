@@ -69,7 +69,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
           $gps = file_get_contents("https://640ea40e.ngrok.io/line-bot/eiei.php?car_id=$car_id");
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
           $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $car_id;
+          $arrayPostData['messages'][0]['text'] = $gps;
           replyMsg($arrayHeader,$arrayPostData);
         //}
     }
