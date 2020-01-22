@@ -67,7 +67,8 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         list($gpsz,$car_id)=explode(" ",$message);
         $n_car = urldecode($car_id);
         //if( mb_strlen($car_id, 'UTF-8') >= 3 && mb_strlen($car_id, 'UTF-8') <= 10){
-          $gps = file_get_contents("https://640ea40e.ngrok.io/line-bot/eiei.php?car_id=".trim(str_replace(" ","",$n_car)));
+          $gps = file_get_contents("https://640ea40e.ngrok.io/line-bot/eiei.php?car_id=".trim(str_replace(" ","",urlencode($n_car))));
+          sleep(3);
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = $gps;
