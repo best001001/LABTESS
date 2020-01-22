@@ -65,11 +65,129 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     }
     else if(stripos($message, 'gps') !== false ){
         list($gpsz,$car_id)=explode(" ",$message); 
+        $qp = [
+            "type" => "flex",
+            "altText" => "Hello Flex Message",
+            "contents" => [
+              "type" => "bubble",
+              "direction" => "ltr",
+              "header" => [
+                "type" => "box",
+                "layout" => "vertical",
+                "contents" => [
+                  [
+                    "type" => "text",
+                    "text" => "Purchase",
+                    "size" => "lg",
+                    "align" => "start",
+                    "weight" => "bold",
+                    "color" => "#009813"
+                  ],
+                  [
+                    "type" => "text",
+                    "text" => "฿ 100.00",
+                    "size" => "3xl",
+                    "weight" => "bold",
+                    "color" => "#000000"
+                  ],
+                  [
+                    "type" => "text",
+                    "text" => "Rabbit Line Pay",
+                    "size" => "lg",
+                    "weight" => "bold",
+                    "color" => "#000000"
+                  ],
+                  [
+                    "type" => "text",
+                    "text" => "2019.02.14 21:47 (GMT+0700)",
+                    "size" => "xs",
+                    "color" => "#B2B2B2"
+                  ],
+                  [
+                    "type" => "text",
+                    "text" => "Payment complete.",
+                    "margin" => "lg",
+                    "size" => "lg",
+                    "color" => "#000000"
+                  ]
+                ]
+              ],
+              "body" => [
+                "type" => "box",
+                "layout" => "vertical",
+                "contents" => [
+                  [
+                    "type" => "separator",
+                    "color" => "#C3C3C3"
+                  ],
+                  [
+                    "type" => "box",
+                    "layout" => "baseline",
+                    "margin" => "lg",
+                    "contents" => [
+                      [
+                        "type" => "text",
+                        "text" => "Merchant",
+                        "align" => "start",
+                        "color" => "#C3C3C3"
+                      ],
+                      [
+                        "type" => "text",
+                        "text" => "BTS 01",
+                        "align" => "end",
+                        "color" => "#000000"
+                      ]
+                    ]
+                  ],
+                  [
+                    "type" => "box",
+                    "layout" => "baseline",
+                    "margin" => "lg",
+                    "contents" => [
+                      [
+                        "type" => "text",
+                        "text" => "New balance",
+                        "color" => "#C3C3C3"
+                      ],
+                      [
+                        "type" => "text",
+                        "text" => "฿ 45.57",
+                        "align" => "end"
+                      ]
+                    ]
+                  ],
+                  [
+                    "type" => "separator",
+                    "margin" => "lg",
+                    "color" => "#C3C3C3"
+                  ]
+                ]
+              ],
+              "footer" => [
+                "type" => "box",
+                "layout" => "horizontal",
+                "contents" => [
+                  [
+                    "type" => "text",
+                    "text" => "View Details",
+                    "size" => "lg",
+                    "align" => "start",
+                    "color" => "#0084B6",
+                    "action" => [
+                      "type" => "uri",
+                      "label" => "View Details",
+                      "uri" => "https://google.co.th/"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+                    ];
         //if( mb_strlen($car_id, 'UTF-8') >= 3 && mb_strlen($car_id, 'UTF-8') <= 10){
           $gps = file_get_contents("https://640ea40e.ngrok.io/line-bot/eiei.php?car_id=".trim(str_replace(" ","",urlencode($car_id))));
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
           $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $gps;
+          $arrayPostData['messages'][0]['text'] = [$qp];
           replyMsg($arrayHeader,$arrayPostData);
         //}
     }
