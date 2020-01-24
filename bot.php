@@ -27,7 +27,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                 ]
             ]
         ];
-        print_r($arrayPostData);
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
@@ -65,7 +64,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "1";
         $arrayPostData['messages'][1]['stickerId'] = "131";
-        print_r($arrayPostData);
         replyMsg($arrayHeader,$arrayPostData);
     }
     else if($message == "token"){
@@ -88,7 +86,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     else{
         $a=[
             "type"=> "text", // ①
-            "text"=> "Select your favorite food category or send me your location!",
+            "text"=> "คุณพิมไม่ถูกต้องสามารถลองแตะที่ปุ่ม 'Quick Reply' ของเราได้ ",
             "quickReply"=> [ // ②
               "items"=> [
                 [
@@ -123,7 +121,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
             'replyToken' =>  $arrayJson['events'][0]['replyToken'],
             'messages' => [$a]
         ];
-        print_r($arrayPostData);
         replyMsg($arrayHeader,$arrayPostData);
     }
     
