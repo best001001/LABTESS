@@ -25,16 +25,16 @@ header("Cache-Control: post-check=0, pre-check=0", false);
               "items"=> [
                 [
                   "type"=> "action", // ③
-                  "imageUrl"=> "https://example.com/sushi.png",
+                  "imageUrl"=> "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg",
                   "action"=> [
                     "type"=> "message",
-                    "label"=> "สวัสดี",
-                    "text"=> "Sushi"
+                    "label"=> "รูปน้องแมว",
+                    "text"=> "รูปน้องแมว"
                   ]
                 ],
                 [
                   "type"=> "action",
-                  "imageUrl"=> "https://example.com/tempura.png",
+                  "imageUrl"=> "",
                   "action"=> [
                     "type"=> "message",
                     "label"=> "ฝันดี",
