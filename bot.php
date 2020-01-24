@@ -17,7 +17,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = '{
+        $arrayPostData['messages'][0]['text'] = ['{
             "type": "text", // ①
             "text": "Select your favorite food category or send me your location!",
             "quickReply": { // ②
@@ -49,7 +49,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                 }
               ]
             }
-          }';
+          }'];
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
