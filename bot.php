@@ -18,42 +18,12 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
-        $a=[
-            "type"=> "text", // ①
-            "text"=> "Select your favorite food category or send me your location!",
-            "quickReply"=> [ // ②
-              "items"=> [
-                [
-                  "type"=> "action", // ③
-                  "imageUrl"=> "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg",
-                  "action"=> [
-                    "type"=> "message",
-                    "label"=> "รูปน้องแมว",
-                    "text"=> "รูปน้องแมว"
-                  ]
-                ],
-                [
-                  "type"=> "action",
-                  "imageUrl"=> "",
-                  "action"=> [
-                    "type"=> "message",
-                    "label"=> "ฝันดี",
-                    "text"=> "ฝันดี"
-                  ]
-                ],
-                [
-                  "type"=> "action", // ④
-                  "action"=> [
-                    "type"=> "location",
-                    "label"=> "Send location"
-                  ]
-                ]
-              ]
-            ]
-          ];
         $arrayPostData = [
             'replyToken' =>  $arrayJson['events'][0]['replyToken'],
-            'messages' => [$a]
+            'messages'   =>  [
+                'type' => 'text',
+                'text' => 'สวัสดีนะ'
+            ]
         ];
         replyMsg($arrayHeader,$arrayPostData);
     }
@@ -110,6 +80,46 @@ header("Cache-Control: post-check=0, pre-check=0", false);
           $arrayPostData['messages'][0]['text'] = $gps;
           replyMsg($arrayHeader,$arrayPostData);
         //}
+    }
+    else{
+        $a=[
+            "type"=> "text", // ①
+            "text"=> "Select your favorite food category or send me your location!",
+            "quickReply"=> [ // ②
+              "items"=> [
+                [
+                  "type"=> "action", // ③
+                  "imageUrl"=> "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg",
+                  "action"=> [
+                    "type"=> "message",
+                    "label"=> "รูปน้องแมว",
+                    "text"=> "รูปน้องแมว"
+                  ]
+                ],
+                [
+                  "type"=> "action",
+                  "imageUrl"=> "",
+                  "action"=> [
+                    "type"=> "message",
+                    "label"=> "ฝันดี",
+                    "text"=> "ฝันดี"
+                  ]
+                ],
+                [
+                  "type"=> "action", // ④
+                  "action"=> [
+                    "type"=> "location",
+                    "label"=> "Send location"
+                  ]
+                ]
+              ]
+            ]
+          ];
+        $arrayPostData = [
+            'replyToken' =>  $arrayJson['events'][0]['replyToken'],
+            'messages' => [$a]
+        ];
+        replyMsg($arrayHeader,$arrayPostData);
     }
     
 function replyMsg($arrayHeader,$arrayPostData){
