@@ -98,6 +98,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 
     }
     else{
+        $b= $arrayJson['event'][0]['message']['type'];
         $a=[
             "type"=> "text", // ①
             "text"=> "คุณพิมไม่ถูกต้องสามารถลองแตะที่ปุ่ม 'Quick Reply' ของเราได้ ",
@@ -117,7 +118,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                   "imageUrl"=> "",
                   "action"=> [
                     "type"=> "message",
-                    "label"=> "ฝันดี",
+                    "label"=> $b,
                     "text"=> "ฝันดี"
                   ]
                 ],
