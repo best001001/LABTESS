@@ -28,7 +28,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                   "imageUrl"=> "https://example.com/sushi.png",
                   "action"=> [
                     "type"=> "message",
-                    "label"=> "Sushi",
+                    "label"=> "สวัสดี",
                     "text"=> "Sushi"
                   ]
                 ],
@@ -37,8 +37,8 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                   "imageUrl"=> "https://example.com/tempura.png",
                   "action"=> [
                     "type"=> "message",
-                    "label"=> "Tempura",
-                    "text"=> "Tempura"
+                    "label"=> "ฝันดี",
+                    "text"=> "ฝันดี"
                   ]
                 ],
                 [
