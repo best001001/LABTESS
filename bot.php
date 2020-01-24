@@ -98,7 +98,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 
     }
     else{
-        $b= $arrayJson['events'][0]['message']['type'];
         $a=[
             "type"=> "text", // ①
             "text"=> "คุณพิมไม่ถูกต้องสามารถลองแตะที่ปุ่ม 'Quick Reply' ของเราได้ ",
@@ -109,7 +108,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                   "imageUrl"=> "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg",
                   "action"=> [
                     "type"=> "message",
-                    "label"=> "รูปน้องแมว",
+                    "label"=> "ขอรูปน้องแมว",
                     "text"=> "รูปน้องแมว"
                   ]
                 ],
@@ -118,7 +117,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                   "imageUrl"=> "",
                   "action"=> [
                     "type"=> "message",
-                    "label"=> "$b",
+                    "label"=> "ฝันดีบอท",
                     "text"=> "ฝันดี"
                   ]
                 ],
