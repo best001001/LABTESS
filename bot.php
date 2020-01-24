@@ -118,7 +118,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                   "imageUrl"=> "",
                   "action"=> [
                     "type"=> "message",
-                    "label"=> $b,
+                    "label"=> "$b",
                     "text"=> "ฝันดี"
                   ]
                 ],
