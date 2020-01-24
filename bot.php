@@ -84,7 +84,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         //}
     }
 
-    else if($arrayJson['event'][0]['message']['type']=="location"){
+    else if($arrayJson['events'][0]['message']['type']=="location"){
         $arrayPostData = [
             'replyToken' =>  $arrayJson['events'][0]['replyToken'],
             'messages'   =>  [
@@ -98,7 +98,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 
     }
     else{
-        $b= $arrayJson['event'][0]['message']['type'];
+        $b= $arrayJson['events'][0]['message']['type'];
         $a=[
             "type"=> "text", // ①
             "text"=> "คุณพิมไม่ถูกต้องสามารถลองแตะที่ปุ่ม 'Quick Reply' ของเราได้ ",
@@ -118,7 +118,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                   "imageUrl"=> "",
                   "action"=> [
                     "type"=> "message",
-                    "label"=> "sab",
+                    "label"=> "$b",
                     "text"=> "ฝันดี"
                   ]
                 ],
