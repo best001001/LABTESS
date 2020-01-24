@@ -13,44 +13,14 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
+
+
+    
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
-        $a=[
-            "type"=> "text", // ①
-            "text"=> "Select your favorite food category or send me your location!",
-            "quickReply"=> [ // ②
-              "items"=> [
-                [
-                  "type"=> "action", // ③
-                  "imageUrl"=> "https://example.com/sushi.png",
-                  "action"=> [
-                    "type"=> "message",
-                    "label"=> "Sushi",
-                    "text"=> "Sushi"
-                  ]
-                ],
-                [
-                  "type"=> "action",
-                  "imageUrl"=> "https://example.com/tempura.png",
-                  "action"=> [
-                    "type"=> "message",
-                    "label"=> "Tempura",
-                    "text"=> "Tempura"
-                  ]
-                ],
-                [
-                  "type"=> "action", // ④
-                  "action"=> [
-                    "type"=> "location",
-                    "label"=> "Send location"
-                  ]
-                ]
-              ]
-            ]
-          ];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $a;
+        $arrayPostData['messages'][0]['text'] = ["สวัสดีจ้า"];
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
