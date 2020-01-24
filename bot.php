@@ -83,6 +83,20 @@ header("Cache-Control: post-check=0, pre-check=0", false);
           replyMsg($arrayHeader,$arrayPostData);
         //}
     }
+
+    else if($arrayJson['event'][0]['message']['type']=="location"){
+        $arrayPostData = [
+            'replyToken' =>  $arrayJson['events'][0]['replyToken'],
+            'messages'   =>  [
+                [
+                'type' => 'text',
+                'text' => 'เราได้รับ Location เรียบร้อยแล้ว'
+                ]
+            ]
+        ];
+        replyMsg($arrayHeader,$arrayPostData);
+
+    }
     else{
         $a=[
             "type"=> "text", // ①
