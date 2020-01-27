@@ -273,47 +273,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
       "contents" => [
         "type" => "bubble",
         "direction" => "ltr",
-        "header" => [
-          "type" => "box",
-          "layout" => "vertical",
-          "contents" => [
-            [
-              "type" => "text",
-              "text" => "Purchase",
-              "size" => "lg",
-              "align" => "start",
-              "weight" => "bold",
-              "color" => "#009813"
-            ],
-            [
-              "type" => "text",
-              "text" => "฿ 100.00",
-              "size" => "3xl",
-              "weight" => "bold",
-              "color" => "#000000"
-            ],
-            [
-              "type" => "text",
-              "text" => "Rabbit Line Pay",
-              "size" => "lg",
-              "weight" => "bold",
-              "color" => "#000000"
-            ],
-            [
-              "type" => "text",
-              "text" => "2019.02.14 21:47 (GMT+0700)",
-              "size" => "xs",
-              "color" => "#B2B2B2"
-            ],
-            [
-              "type" => "text",
-              "text" => "Payment complete.",
-              "margin" => "lg",
-              "size" => "lg",
-              "color" => "#000000"
-            ]
-          ]
-        ],
+     
         "body" => [
           "type" => "box",
           "layout" => "vertical",
@@ -421,9 +381,10 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         ]
       ]
     ];
+    echo json_encode($b);
     $arrayPostData = [
         'replyToken' =>  $arrayJson['events'][0]['replyToken'],
-        'messages'   =>  [$c]
+        'messages'   =>  [$b]
     ];
     replyMsg($arrayHeader,$arrayPostData);
 }
