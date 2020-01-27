@@ -241,7 +241,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                 "action"=> [
                   "type"=> "uri",
                   "label"=> "CALL",
-                  "uri"=> "tel:+31123456789"
+                  "uri"=> "tel:0944578541"
                 ],
                 "height"=> "sm",
                 "style"=> "link"
