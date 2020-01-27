@@ -393,13 +393,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         "contents"=> [
           "type"=> "bubble",
           "direction"=> "ltr",
-          "hero"=> [
-            "type"=> "image",
-            "url"=> "https://i.kym-cdn.com/photos/images/original/000/809/392/d22.jpg",
-            "size"=> "full",
-            "aspectRatio"=> "1.51:1",
-            "aspectMode"=> "fit"
-          ],
           "body"=> [
             "type"=> "box",
             "layout"=> "vertical",
