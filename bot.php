@@ -11,8 +11,8 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     $id = $arrayJson['events'][0]['source']['userId'];
     //รับข้อความจากผู้ใช้
-    $message = $arrayJson['events'][0]['message']['text'];
-    
+    //$message = $arrayJson['events'][0]['message']['text'];
+    $message = "flex";
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData = [
@@ -395,7 +395,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
           "direction"=> "ltr",
           "hero"=> [
             "type"=> "image",
-            "url"=> "https://developers.line.biz/assets/images/services/bot-designer-icon.png",
+            "url"=> "https://i.kym-cdn.com/photos/images/original/000/809/392/d22.jpg",
             "size"=> "full",
             "aspectRatio"=> "1.51:1",
             "aspectMode"=> "fit"
@@ -428,7 +428,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         ]
       ]
     ];
-    
+    echo json_encode($c);
     $arrayPostData = [
         'replyToken' =>  $arrayJson['events'][0]['replyToken'],
         'messages'   =>  [$c]
