@@ -240,8 +240,8 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                 "type"=> "button",
                 "action"=> [
                   "type"=> "uri",
-                  "label"=> "CALL",
-                  "uri"=> "tel.0944578541"
+                  "label"=> "https://linecorp.com",
+                  "uri"=> ""
                 ],
                 "height"=> "sm",
                 "style"=> "link"
