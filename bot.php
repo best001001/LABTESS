@@ -101,8 +101,9 @@ header("Cache-Control: post-check=0, pre-check=0", false);
           'replyToken' =>  $arrayJson['events'][0]['replyToken'],
           'messages'   =>  [
               [
-              'type' => 'video',
-              'originalContentUrl' => 'https://www.youtube.com/watch?v=CX0LMYEepwk'
+              'type'               => 'video',
+              'originalContentUrl' => 'https://www.youtube.com/watch?v=CX0LMYEepwk',
+              'previewImageUrl'    => 'https://i.kym-cdn.com/photos/images/original/000/809/392/d22.jpg'
               ]
           ]
       ];
