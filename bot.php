@@ -9,7 +9,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    
+    $id = $arrayJson['events'][0]['source']['userId'];
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 
@@ -30,7 +30,8 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     }
     #ตัวอย่าง Message Type "Sticker"
     else if($message == "ฝันดี"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['to'] = $id;
+        //$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "sticker";
         $arrayPostData['messages'][0]['packageId'] = "2";
         $arrayPostData['messages'][0]['stickerId'] = "46";
