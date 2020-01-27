@@ -421,10 +421,9 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         ]
       ]
     ];
-    echo json_encode($c);
     $arrayPostData = [
         'replyToken' =>  $arrayJson['events'][0]['replyToken'],
-        'messages'   =>  [$c]
+        'messages'   =>  [$b]
     ];
     replyMsg($arrayHeader,$arrayPostData);
 }
