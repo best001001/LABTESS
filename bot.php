@@ -12,8 +12,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     $id = $arrayJson['events'][0]['source']['userId'];
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-    $message = "flex";
-
     
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
