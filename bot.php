@@ -6,7 +6,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-    $test      = json_encode($arrayJson);
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
@@ -139,7 +138,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     }
     
 function replyMsg($arrayHeader,$arrayPostData){
-        $strUrl = "https://api.line.me/v2/bot/message/reply";
+        $strUrl = "https://api.line.me/v2/bot/message/push";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
