@@ -388,32 +388,32 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 
     $c =[
       [
-        "type"=> "flex",
-        "altText"=> "Flex Message",
-        "contents"=> [
-          "type"=> "bubble",
-          "direction"=> "ltr",
-          "body"=> [
-            "type"=> "box",
-            "layout"=> "vertical",
-            "contents"=> [
+        "type" => "flex",
+        "altText" => "Flex Message",
+        "contents" => [
+          "type" => "bubble",
+          "direction" => "ltr",
+          "body" => [
+            "type" => "box",
+            "layout" => "vertical",
+            "contents" => [
               [
-                "type"=> "text",
-                "text"=> "Body",
-                "align"=> "center"
+                "type" => "text",
+                "text" => "Body",
+                "align" => "center"
               ]
             ]
           ],
-          "footer"=> [
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> [
+          "footer" => [
+            "type" => "box",
+            "layout" => "horizontal",
+            "contents" => [
               [
-                "type"=> "button",
-                "action"=> [
-                  "type"=> "uri",
-                  "label"=> "Button",
-                  "uri"=> "https://linecorp.com"
+                "type" => "button",
+                "action" => [
+                  "type" => "uri",
+                  "label" => "Button",
+                  "uri" => "https://linecorp.com"
                 ]
               ]
             ]
@@ -423,7 +423,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     ];
     $arrayPostData = [
         'replyToken' =>  $arrayJson['events'][0]['replyToken'],
-        'messages'   =>  [$b]
+        'messages'   =>  [$c]
     ];
     replyMsg($arrayHeader,$arrayPostData);
 }
