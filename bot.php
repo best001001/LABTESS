@@ -109,7 +109,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
   }
 
   else if(stripos($message, 'flex') !== false){
-    $a=[
+    $a=
       [
         "type"=> "flex",
         "altText"=> "Flex Message",
@@ -119,7 +119,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
             "type"=> "image",
             "url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
             "size"=> "full",
-            "aspectRatio"=> "20=>13",
+            "aspectRatio"=> "20:13",
             "aspectMode"=> "cover",
             "action"=> [
               "type"=> "uri",
@@ -219,7 +219,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                       ],
                       [
                         "type"=> "text",
-                        "text"=> "10=>00 - 23=>00",
+                        "text"=> "10:00 - 23:00",
                         "flex"=> 5,
                         "size"=> "sm",
                         "color"=> "#666666",
@@ -264,7 +264,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
             ]
           ]
         ]
-      ]
+      
     ];
 
     $b = [
@@ -384,7 +384,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     echo json_encode($b);
     $arrayPostData = [
         'replyToken' =>  $arrayJson['events'][0]['replyToken'],
-        'messages'   =>  [$c]
+        'messages'   =>  [$a]
     ];
     replyMsg($arrayHeader,$arrayPostData);
 }
