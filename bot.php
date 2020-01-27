@@ -385,10 +385,53 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         ]
       ]
     ];
+
+    $c =[
+      [
+        "type"=> "flex",
+        "altText"=> "Flex Message",
+        "contents"=> [
+          "type"=> "bubble",
+          "direction"=> "ltr",
+          "hero"=> [
+            "type"=> "image",
+            "url"=> "https://developers.line.biz/assets/images/services/bot-designer-icon.png",
+            "size"=> "full",
+            "aspectRatio"=> "1.51:1",
+            "aspectMode"=> "fit"
+          ],
+          "body"=> [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "text",
+                "text"=> "Body",
+                "align"=> "center"
+              ]
+            ]
+          ],
+          "footer"=> [
+            "type"=> "box",
+            "layout"=> "horizontal",
+            "contents"=> [
+              [
+                "type"=> "button",
+                "action"=> [
+                  "type"=> "uri",
+                  "label"=> "Button",
+                  "uri"=> "https://linecorp.com"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ];
     
     $arrayPostData = [
         'replyToken' =>  $arrayJson['events'][0]['replyToken'],
-        'messages'   =>  [$a]
+        'messages'   =>  [$c]
     ];
     replyMsg($arrayHeader,$arrayPostData);
 }
