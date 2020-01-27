@@ -346,7 +346,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
       ]
     ];
 
-    $c =[
+    $c =
       [
         "type" => "flex",
         "altText" => "Flex Message",
@@ -379,12 +379,12 @@ header("Cache-Control: post-check=0, pre-check=0", false);
             ]
           ]
         ]
-      ]
+      
     ];
     echo json_encode($b);
     $arrayPostData = [
         'replyToken' =>  $arrayJson['events'][0]['replyToken'],
-        'messages'   =>  [$b]
+        'messages'   =>  [$c]
     ];
     replyMsg($arrayHeader,$arrayPostData);
 }
