@@ -29,9 +29,8 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
-    else if($message == "ฝันดี"){
-        $arrayPostData['to'] = $id;
-        //$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+    else if($message == "ฝันดี"){ 
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "sticker";
         $arrayPostData['messages'][0]['packageId'] = "2";
         $arrayPostData['messages'][0]['stickerId'] = "46";
@@ -97,6 +96,20 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         replyMsg($arrayHeader,$arrayPostData);
 
     }
+    else if(stripos($, 'dio') !== false){
+      $arrayPostData = [
+          'replyToken' =>  $arrayJson['events'][0]['replyToken'],
+          'messages'   =>  [
+              [
+              'type' => 'video',
+              'originalContentUrl' => 'https://www.youtube.com/watch?v=CX0LMYEepwk'
+              ]
+          ]
+      ];
+      replyMsg($arrayHeader,$arrayPostData);
+
+  }
+
     else{
         $a=[
             "type"=> "text", // ①
@@ -139,7 +152,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     }
     
 function replyMsg($arrayHeader,$arrayPostData){
-        $strUrl = "https://api.line.me/v2/bot/message/push";
+        $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -151,5 +164,19 @@ function replyMsg($arrayHeader,$arrayPostData){
         $result = curl_exec($ch);
         curl_close ($ch);
     }
+
+function pushMsg($arrayHeader,$arrayPostData){
+        $strUrl = "https://api.line.me/v2/bot/message/push";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
+        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+    }    
    exit;
 ?>
