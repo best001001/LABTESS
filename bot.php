@@ -11,8 +11,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     $id = $arrayJson['events'][0]['source']['userId'];
     //รับข้อความจากผู้ใช้
-    //$message = $arrayJson['events'][0]['message']['text'];
-    $message = "flex";
+    $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData = [
@@ -266,122 +265,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
         ]
       
     ];
-
-    $b = [
-      "type" => "flex",
-      "altText" => "Hello Flex Message",
-      "contents" => [
-        "type" => "bubble",
-        "direction" => "ltr",
-     
-        "body" => [
-          "type" => "box",
-          "layout" => "vertical",
-          "contents" => [
-            [
-              "type" => "separator",
-              "color" => "#C3C3C3"
-            ],
-            [
-              "type" => "box",
-              "layout" => "baseline",
-              "margin" => "lg",
-              "contents" => [
-                [
-                  "type" => "text",
-                  "text" => "Merchant",
-                  "align" => "start",
-                  "color" => "#C3C3C3"
-                ],
-                [
-                  "type" => "text",
-                  "text" => "BTS 01",
-                  "align" => "end",
-                  "color" => "#000000"
-                ]
-              ]
-            ],
-            [
-              "type" => "box",
-              "layout" => "baseline",
-              "margin" => "lg",
-              "contents" => [
-                [
-                  "type" => "text",
-                  "text" => "New balance",
-                  "color" => "#C3C3C3"
-                ],
-                [
-                  "type" => "text",
-                  "text" => "฿ 45.57",
-                  "align" => "end"
-                ]
-              ]
-            ],
-            [
-              "type" => "separator",
-              "margin" => "lg",
-              "color" => "#C3C3C3"
-            ]
-          ]
-        ],
-        "footer" => [
-          "type" => "box",
-          "layout" => "horizontal",
-          "contents" => [
-            [
-              "type" => "text",
-              "text" => "View Details",
-              "size" => "lg",
-              "align" => "start",
-              "color" => "#0084B6",
-              "action" => [
-                "type" => "uri",
-                "label" => "View Details",
-                "uri" => "https://google.co.th/"
-              ]
-            ]
-          ]
-        ]
-      ]
-    ];
-
-    $c =
-      [
-        "type" => "flex",
-        "altText" => "Flex Message",
-        "contents" => [
-          "type" => "bubble",
-          "direction" => "ltr",
-          "body" => [
-            "type" => "box",
-            "layout" => "vertical",
-            "contents" => [
-              [
-                "type" => "text",
-                "text" => "Body",
-                "align" => "center"
-              ]
-            ]
-          ],
-          "footer" => [
-            "type" => "box",
-            "layout" => "horizontal",
-            "contents" => [
-              [
-                "type" => "button",
-                "action" => [
-                  "type" => "uri",
-                  "label" => "Button",
-                  "uri" => "https://linecorp.com"
-                ]
-              ]
-            ]
-          ]
-        ]
-      
-    ];
-    echo json_encode($b);
+    echo json_encode($a);
     $arrayPostData = [
         'replyToken' =>  $arrayJson['events'][0]['replyToken'],
         'messages'   =>  [$a]
