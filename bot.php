@@ -253,7 +253,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
                   "type"=> "postback",
                   "label"=> "WEBSITE",
                  
-                  "data"=> "car_id=fgs"
+                  "data"=> "car_id=1ฒข271"
                 ],
                 "height"=> "sm",
                 "style"=> "link"
@@ -276,7 +276,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 }
 
 else {
-  $gps = file_get_contents("https://56041cf5.ngrok.io/line-bot/eiei.php?$data");
+  $gps = file_get_contents("https://56041cf5.ngrok.io/line-bot/eiei.php?".urlencode($data));
   $arrayPostData = [
       'replyToken' =>  $arrayJson['events'][0]['replyToken'],
       'messages'   =>  [
