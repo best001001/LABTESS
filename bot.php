@@ -282,7 +282,7 @@ else {
   $gps_sim = $new_gps -> gps_sim ; 
   $gps_serial = $new_gps -> gps_serial ;
   
-  $reply = "GPS_SIM : $gps_sim GPS_SERIAL : $gps_serial";
+  $reply = "GPS_SIM : $gps_sim\r\nGPS_SERIAL : $gps_serial";
   $arrayPostData = [
       'replyToken' =>  $arrayJson['events'][0]['replyToken'],
       'messages'   =>  [
