@@ -284,7 +284,7 @@ else {
       'messages'   =>  [
           [
           'type' => 'text',
-          'text' => $new_gps
+          'text' => $new_gps['gps_sim']
           ]
       ]
   ];
