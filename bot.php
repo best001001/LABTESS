@@ -12,7 +12,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
     $type    = $arrayJson['events'][0]['message']['type'];
-    $data    = $arrayJson['events'][0]['data'];
+    $data    = $arrayJson['events'][0]]['postback']['data'];
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData = [
