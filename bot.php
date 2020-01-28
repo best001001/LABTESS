@@ -12,6 +12,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     $id = $arrayJson['events'][0]['source']['userId'];
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
+    $type    = $arrayJson['events'][0]['message']['type'];
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData = [
@@ -274,6 +275,18 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     replyMsg($arrayHeader,$arrayPostData);
 }
 
+else if($type == "postback"){
+  $arrayPostData = [
+      'replyToken' =>  $arrayJson['events'][0]['replyToken'],
+      'messages'   =>  [
+          [
+          'type' => 'text',
+          'text' => $content
+          ]
+      ]
+  ];
+  replyMsg($arrayHeader,$arrayPostData);
+}
 
     else{
         $a=[
