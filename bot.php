@@ -14,7 +14,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
     $message = $arrayJson['events'][0]['message']['text'];
     $type    = $arrayJson['events'][0]['message']['type'];
 #ตัวอย่าง Message Type "Text"
-    if($type == "text"){
+    
         $arrayPostData = [
             'replyToken' =>  $arrayJson['events'][0]['replyToken'],
             'messages'   =>  [
@@ -25,7 +25,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
             ]
         ];
         replyMsg($arrayHeader,$arrayPostData);
-    }
+    
 
     
 function replyMsg($arrayHeader,$arrayPostData){
