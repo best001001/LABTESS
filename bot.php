@@ -285,49 +285,49 @@ else if($type == "postback"){
           ]
       ]
   ];
-  replyMsg($arrayHeader,$arrayPostData);
-}
-
-    else{
-        $a=[
-            "type"=> "text", // ①
-            "text"=> "คุณพิมไม่ถูกต้องสามารถลองแตะที่ปุ่ม 'Quick Reply' ของเราได้ ",
-            "quickReply"=> [ // ②
-              "items"=> [
-                [
-                  "type"=> "action", // ③
-                  "imageUrl"=> "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg",
-                  "action"=> [
-                    "type"=> "message",
-                    "label"=> "ขอรูปน้องแมว",
-                    "text"=> "รูปน้องแมว"
-                  ]
-                ],
-                [
-                  "type"=> "action",
-                  "imageUrl"=> "",
-                  "action"=> [
-                    "type"=> "message",
-                    "label"=> "ฝันดีบอท",
-                    "text"=> "ฝันดี"
-                  ]
-                ],
-                [
-                  "type"=> "action", // ④
-                  "action"=> [
-                    "type"=> "location",
-                    "label"=> "Send location"
-                  ]
-                ]
-              ]
-            ]
-          ];
-        $arrayPostData = [
-            'replyToken' =>  $arrayJson['events'][0]['replyToken'],
-            'messages' => [$a]
-        ];
-        replyMsg($arrayHeader,$arrayPostData);
-    }
+ // replyMsg($arrayHeader,$arrayPostData);
+}//
+//
+ //   else{
+ //       $a=[
+ //           "type"=> "text", // ①
+ //           "text"=> "คุณพิมไม่ถูกต้องสามารถลองแตะที่ปุ่ม 'Quick Reply' ของเราได้ ",
+ //           "quickReply"=> [ // ②
+ //             "items"=> [
+ //               [
+ //                 "type"=> "action", // ③
+ //                 "imageUrl"=> "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg",
+ //                 "action"=> [
+ //                   "type"=> "message",
+ //                   "label"=> "ขอรูปน้องแมว",
+ //                   "text"=> "รูปน้องแมว"
+ //                 ]
+ //               ],
+ //               [
+ //                 "type"=> "action",
+ //                 "imageUrl"=> "",
+ //                 "action"=> [
+ //                   "type"=> "message",
+ //                   "label"=> "ฝันดีบอท",
+ //                   "text"=> "ฝันดี"
+ //                 ]
+ //               ],
+ //               [
+ //                 "type"=> "action", // ④
+ //                 "action"=> [
+ //                   "type"=> "location",
+ //                   "label"=> "Send location"
+ //                 ]
+ //               ]
+ //             ]
+ //           ]
+ //         ];
+ //       $arrayPostData = [
+ //           'replyToken' =>  $arrayJson['events'][0]['replyToken'],
+ //           'messages' => [$a]
+ //       ];
+ //       replyMsg($arrayHeader,$arrayPostData);
+ //   }
     
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
