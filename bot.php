@@ -278,12 +278,13 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 else {
   list($t1,$t2) = explode("=",$data);
   $gps = file_get_contents("https://56041cf5.ngrok.io/line-bot/eiei.php?$t1=".urlencode($t2));
+  $new_gps = json_decode($gps); 
   $arrayPostData = [
       'replyToken' =>  $arrayJson['events'][0]['replyToken'],
       'messages'   =>  [
           [
           'type' => 'text',
-          'text' => $gps
+          'text' => $new_gps
           ]
       ]
   ];
