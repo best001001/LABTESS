@@ -3,7 +3,7 @@ header("Content-type:application/json; charset=UTF-8");
 header("Cache-Control: no-store, no-cache, must-revalidate");         
 header("Cache-Control: post-check=0, pre-check=0", false); 
     $accessToken = "0zv2kguUzxFpHl2hOa4GREeT2dhpx+Cr3yb/oHwA374LsKwDCldj/8DHjllLOlvWT7+m6gp46AyPTrHTLsf/R0khwzaoxqWnapg/5MI8iMxAio9Wefmx8lCEelzbDV2y57rnGdzHd4o6M204/4ioyAdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
-    
+    $get = $_GET['abc'];
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
     $arrayHeader = array();
@@ -281,7 +281,7 @@ else {
       'messages'   =>  [
           [
           'type' => 'text',
-          'text' => $content
+          'text' => $get
           ]
       ]
   ];
