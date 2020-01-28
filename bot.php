@@ -283,7 +283,7 @@ else {
       'messages'   =>  [
           [
           'type' => 'text',
-          'text' => trim($gps)
+          'text' => $gps
           ]
       ]
   ];
